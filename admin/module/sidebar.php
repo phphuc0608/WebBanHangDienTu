@@ -11,27 +11,27 @@
   </div>
   <ul class="nav flex-column mt-2">
     <li class="nav-item p-1">
-      <a class="nav-link" href="../1_1_quan_ly_nguoi_dung/them_nguoi_dung.php">Quản lý người dùng</a>
+      <a class="nav-link" href="../quan_ly_nguoi_dung/them_nguoi_dung.php">Quản lý người dùng</a>
       <a href="../quan_ly_nguoi_dung/them_nguoi_dung.php"><span class="bi bi-people-fill"></span></a>
     </li>
     <li class="nav-item p-1">
-      <a class="nav-link" href="../2_1_quan_ly_loai_san_pham/them_loai_san_pham.php">Quản lý loại sản phẩm</a>
+      <a class="nav-link" href="../quan_ly_loai_san_pham/them_loai_san_pham.php">Quản lý loại sản phẩm</a>
       <a  href="../quan_ly_loai_san_pham/them_loai_san_pham.php"><span class="bi bi-collection-fill"></span></a>
     </li>
     <li class="nav-item p-1">
-      <a class="nav-link" href="../2_2_quan_ly_nsx/them_nsx.php">Quản lý nhà sản xuất</a>
+      <a class="nav-link" href="../quan_ly_nsx/them_nsx.php">Quản lý nhà sản xuất</a>
       <a href="../quan_ly_nsx/them_nsx.php"><span class="bi bi-collection-fill"></span></a>
     </li>
     <li class="nav-item p-1">
-      <a class="nav-link" href="../2_3_quan_ly_loai_tin_tuc/them_loai_tin_tuc.php">Quản lý loại tin tức</a>
+      <a class="nav-link" href="../quan_ly_loai_tin_tuc/quan_ly_loai_tin_tuc.php">Quản lý loại tin tức</a>
       <a href="../quan_ly_loai_tin_tuc/them_loai_tin_tuc.php"><span class="bi bi-collection-fill"></span></a>
     </li>
     <li class="nav-item p-1">
-      <a class="nav-link" href="../3_1_quan_ly_san_pham/quan_ly_san_pham.php">Quản lý sản phẩm</a>
+      <a class="nav-link" href="../quan_ly_san_pham/quan_ly_san_pham.php">Quản lý sản phẩm</a>
       <a href="../quan_ly_san_pham/quan_ly_san_pham.php"><span class="bi bi-box-fill"></span></a>
     </li>
     <li class="nav-item p-1">
-      <a class="nav-link" href="../3_2_quan_ly_tin_tuc/quan_ly_tin_tuc.php">Quản lý tin tức</a>
+      <a class="nav-link" href="../quan_ly_tin_tuc/quan_ly_tin_tuc.php">Quản lý tin tức</a>
       <a href="../quan_ly_tin_tuc/quan_ly_tin_tuc.php"><span class="bi bi-newspaper"></span></a>
     </li>
   </ul>

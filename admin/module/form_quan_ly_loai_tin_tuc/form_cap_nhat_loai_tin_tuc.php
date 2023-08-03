@@ -3,12 +3,12 @@
   $param = array('ma_loai_tin_tuc' => $ma_loai_tin_tuc);
   $data = execute_query("SELECT * FROM loai_tin_tuc WHERE ma_loai_tin_tuc = :ma_loai_tin_tuc", $param);
   if(count($data) == 0){
-    alert('Loại sản phẩm không tồn tại');
-    location('/WebBanHang/admin/2_3_quan_ly_loai_tin_tuc/sua_loai_tin_tuc.php');
+    alert('Loại tin tức không tồn tại');
+    location('them_loai_tin_tuc.php');
     return;
-  }else{
-    $loai_tin_tuc = $data[0];
   }
+  else
+    $loai_tin_tuc = $data[0];
 ?>
 <div class="col-md-12 px-3 py-2 mb-3 rounded font-weight-bold" id="function_name">
   QUẢN LÝ LOẠI TIN TỨC / CẬP NHẬT
@@ -19,15 +19,15 @@
 <div class="col-md-6 p-3">
   <div class="form-group">
     <label for="ma_loai_tin_tuc">Mã loại tin tức</label>
-    <input readonly type="text" class="form-control" name="ma_loai_tin_tuc" id="ma_loai_tin_tuc" value="<?php echo $loai_tin_tuc[0];?>">
+    <input readonly type="text" class="form-control" name="ma_loai_tin_tuc" id="ma_loai_tin_tuc" value="<?php echo $loai_tin_tuc['ma_loai_tin_tuc'];?>">
 </div>
   <div class="form-group">
     <label for="ten_loai_tin_tuc">Tên loại tin tức</label>
-    <input type="text" class="form-control require" name="ten_loai_tin_tuc" id="ten_loai_tin_tuc" value="<?php echo $loai_tin_tuc[1];?>">
+    <input type="text" class="form-control require" name="ten_loai_tin_tuc" id="ten_loai_tin_tuc" value="<?php echo $loai_tin_tuc['ten_loai_tin_tuc'];?>">
   </div>
   <div class="form-group form-check">
     <label class="form-check-label">
-      <input type="checkbox" name="trang_thai" class="form-check-input" <?php if($loai_tin_tuc[2] == 1) echo 'checked';?>>
+      <input type="checkbox" name="trang_thai" class="form-check-input" <?php if($loai_tin_tuc['trang_thai'] == 1) echo 'checked';?>>
       Kích hoạt
     </label>
   </div>

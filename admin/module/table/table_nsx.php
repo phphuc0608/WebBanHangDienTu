@@ -19,8 +19,8 @@
                             <input type="checkbox" onclick="return false" '.($nha_san_xuat[3] == 1 ? 'checked' : '').'>
                         </td>
                         <td class="text-center">
-								<a href="/WebBanHang/admin/2_2_quan_ly_nsx/sua_nsx.php?id='.$nha_san_xuat[0].'"><i class="bi bi-pen-fill"></i></a> | 
-								<a href="/WebBanHang/admin/2_2_quan_ly_nsx/xu_ly_xoa_nsx.php?id='.$nha_san_xuat[0].'"><i class="bi bi-trash-fill"></i></a>
+								<a href="/WebBanHang/admin/quan_ly_nsx/sua_nsx.php?id='.$nha_san_xuat[0].'"><i class="bi bi-pen-fill"></i></a> | 
+								<a href="/WebBanHang/admin/quan_ly_nsx/xu_ly_xoa_nsx.php?id='.$nha_san_xuat[0].'"><i class="bi bi-trash-fill"></i></a>
 							</td>
                         </tr>';
                 ?>

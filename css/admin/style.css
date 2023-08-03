@@ -10,9 +10,6 @@
 	transform: translateY(-50%);
 	cursor: pointer;
 }
-#main {
-	margin-left: 300px;
-}
 #menu {
 	position: fixed;
 	height: 100%;

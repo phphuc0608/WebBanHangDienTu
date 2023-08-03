@@ -2,10 +2,10 @@
 	include '../module/database.php';
 	include '../module/javascript.php';
 	$ma_tin_tuc = $_POST['ma_tin_tuc'];
-    $tieu_de = $_POST['tieu_de'];
-    $ma_loai_tin_tuc = $_POST['ma_loai_tin_tuc'];
-    $tom_tat = $_POST['tom_tat'];
-    $noi_dung = $_POST['noi_dung'];
+	$tieu_de = $_POST['tieu_de'];
+	$ma_loai_tin_tuc = $_POST['ma_loai_tin_tuc'];
+	$tom_tat = $_POST['tom_tat'];
+	$noi_dung = $_POST['noi_dung'];
 	$trang_thai = isset($_POST['trang_thai']);
 	$filename = $_FILES['hinh_anh']['name'];
 	if($file_name == ''){

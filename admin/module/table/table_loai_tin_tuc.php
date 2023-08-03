@@ -10,7 +10,17 @@
     </thead>
     <tbody>
       <?php
-        $loai_tin_tucs = execute_query("SELECT * FROM loai_tin_tuc");
+        $sql= "SELECT * FROM loai_tin_tuc WHERE 1=1";
+        $params=array();
+        if(isset($_SESSION['tu_khoa_loai_tin_tuc'])){
+          $sql = $sql." AND ten_loai_tin_tuc LIKE CONCAT('%',:tu_khoa,'%')";
+          $params['tu_khoa'] = $_SESSION['tu_khoa_loai_tin_tuc'];
+        }
+        if($_SESSION['trang_thai_loai_tin_tuc']!=-1){
+          $sql = $sql." AND loai_tin_tuc.trang_thai = :trang_thai";
+          $params['trang_thai'] = $_SESSION['trang_thai_loai_tin_tuc'];
+        }
+        $loai_tin_tucs = execute_query($sql,$params);
         foreach($loai_tin_tucs as $loai_tin_tuc){
           echo '
             <tr>
@@ -20,8 +30,8 @@
                 <input type="checkbox" onclick="return false" '.($loai_tin_tuc['trang_thai'] == 1 ? 'checked' : '').'>
               </td>
               <td class="text-center">
-                <a href="/WebBanHang/admin/2_3_quan_ly_loai_tin_tuc/sua_loai_tin_tuc.php?id='.$loai_tin_tuc['ma_loai_tin_tuc'].'"><i class="bi bi-pen-fill"></i></a> | 
-                <a href="/WebBanHang/admin/2_3_quan_ly_loai_tin_tuc/xu_ly_xoa_loai_tin_tuc.php?id='.$loai_tin_tuc['ma_loai_tin_tuc'].'"><i class="bi bi-trash-fill"></i></a>
+                <a href="/WebBanHang/admin/quan_ly_loai_tin_tuc/sua_loai_tin_tuc.php?id='.$loai_tin_tuc['ma_loai_tin_tuc'].'"><i class="bi bi-pen-fill"></i></a> | 
+                <a href="/WebBanHang/admin/quan_ly_loai_tin_tuc/xu_ly_xoa_loai_tin_tuc.php?id='.$loai_tin_tuc['ma_loai_tin_tuc'].'"><i class="bi bi-trash-fill"></i></a>
               </td>
             </tr>
           ';
