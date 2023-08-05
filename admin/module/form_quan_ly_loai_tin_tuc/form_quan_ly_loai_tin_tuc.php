@@ -7,12 +7,8 @@
 <div class="col-md-6 p-3">
   <div class="form-group">
     <label for="tu_khoa">Từ khóa</label>
-    <input type="text" name="tu_khoa" class="form-control require" id="tu_khoa" 
-    <?php 
-      if(isset($_SESSION['tu_khoa_loai_tin_tuc']))
-        echo 'value = "'.$_SESSION['tu_khoa_loai_tin_tuc'].'"';
-    ?>>
-  </div>
+    <input type="text" name="tu_khoa" class="form-control require" id="tu_khoa">
+  </div>  
   <div class="form-group">
     <label for="trang_thai">
       Trạng thái

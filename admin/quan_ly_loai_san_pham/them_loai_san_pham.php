@@ -1,9 +1,8 @@
+<?php include'../module/kiem_tra_dang_nhap.php';?>
 <!DOCTYPE html>
 <html>
 <head>
-	<meta charset="utf-8">
 	<title>Thêm loại sản phẩm</title>
-	<meta name="viewport" content="width=device-width, initial-scale=1">
   <?php
     include '../module/head.php';
     include '../module/database.php';
@@ -20,7 +19,6 @@
           include '../module/header.php';
           include '../module/form_quan_ly_loai_san_pham/form_them_loai_san_pham.php';
           include '../module/table/table_loai_san_pham.php';
-          include '../module/page_number.php';
         ?>                
       </div>
     </form>

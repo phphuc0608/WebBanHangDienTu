@@ -1,3 +1,4 @@
+<?php include'../module/kiem_tra_dang_nhap.php';?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -17,7 +18,6 @@
 					include '../module/header.php'; 
 					include '../module/form_quan_ly_nsx/form_them_nsx.php'; 
 					include '../module/table/table_nsx.php';  
-          			include '../module/page_number.php';
 					include '../module/footer.php';
 				?>
 			</div>

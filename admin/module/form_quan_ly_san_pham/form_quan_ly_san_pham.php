@@ -46,7 +46,7 @@
 </div>
 <div class="col-md-12">
   <div class="form-group">
-    <button class="btn font-weight-bold">Tìm kiếm <i style="font-size: 20px;" class='bx bx-search'></i></button>
-    <a href="them_san_pham.php"><button class="btn font-weight-bold ml-2">Thêm sản phẩm <i class="bi bi-plus-circle-fill"></i></button></a>          
+    <button type="submit" class="btn font-weight-bold">Tìm kiếm <i style="font-size: 20px;" class='bx bx-search'></i></button>
+    <a href="them_san_pham.php"><button type="button" class="btn font-weight-bold ml-2">Thêm sản phẩm <i class="bi bi-plus-circle-fill"></i></button></a>          
   </div>        
 </div>

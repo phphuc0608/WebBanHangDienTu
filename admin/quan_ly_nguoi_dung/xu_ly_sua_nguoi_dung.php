@@ -1,6 +1,7 @@
 <?php
+	include'../module/kiem_tra_dang_nhap.php';
 	include '../module/database.php';
-	include '../module/javascript.php';
+	// include_once '../module/javascript.php';
 	$tai_khoan = $_POST['ten_tai_khoan'];
 	$mat_khau = md5($_POST['mat_khau']);
 	$trang_thai = isset($_POST['trang_thai']);
@@ -25,6 +26,6 @@
 		$params['trang_thai'] =  $trang_thai;
 		$sql = "UPDATE nguoi_dung SET trang_thai=:trang_thai WHERE tai_khoan=:tai_khoan";
 		execute_command($sql, $params);
-	location('them_nguoi_dung.php');
+		location('them_nguoi_dung.php');
 	}
 ?>

@@ -1,4 +1,5 @@
 <?php
+  include'../module/kiem_tra_dang_nhap.php'; 
   include '../module/database.php';
   include '../module/javascript.php';
   $ma_loai_san_pham = $_GET['id'];

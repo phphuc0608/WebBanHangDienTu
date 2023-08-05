@@ -10,7 +10,7 @@
 		<input type="text" class="form-control require" name="ten_tai_khoan" id="ten_tai_khoan">
 	</div>
 	<div class="form-group">
-		<input type="password" class="form-control" id="mat_khau_dang_nhap" name="mat_khau" placeholder="Mật khẩu" required>
+		<input type="password" class="form-control require" id="mat_khau_dang_nhap" name="mat_khau" placeholder="Mật khẩu">
 		<span toggle="#mat_khau_dang_nhap" class="fa fa-fw fa-eye field-icon toggle-password"></span>
 	</div>
 	<div class="form-group">

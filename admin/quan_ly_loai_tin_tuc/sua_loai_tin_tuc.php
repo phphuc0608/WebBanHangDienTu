@@ -16,7 +16,6 @@
 				include '../module/header.php';
 			 	include '../module/form_quan_ly_loai_tin_tuc/form_cap_nhat_loai_tin_tuc.php';
 			 	include '../module/table/table_loai_tin_tuc.php'; 
-			 	include '../module/page_number.php'; 
 			?>
 		</form>
   </div>

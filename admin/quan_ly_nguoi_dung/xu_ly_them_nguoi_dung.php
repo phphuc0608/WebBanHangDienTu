@@ -1,6 +1,6 @@
 <?php
+	include'../module/kiem_tra_dang_nhap.php';
 	include '../module/database.php';
- 	include '../module/javascript.php';
 	$tai_khoan = $_POST['ten_tai_khoan'];
 	$mat_khau = md5($_POST['mat_khau']);
 	$trang_thai = isset($_POST['trang_thai']);

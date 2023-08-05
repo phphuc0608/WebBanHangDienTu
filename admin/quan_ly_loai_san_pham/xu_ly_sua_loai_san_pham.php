@@ -1,4 +1,5 @@
 <?php
+  include'../module/kiem_tra_dang_nhap.php'; 
   include '../module/database.php';
   $ma_loai_san_pham = $_POST['ma_loai_san_pham'];
   $ten_loai_san_pham = $_POST['ten_loai_san_pham'];

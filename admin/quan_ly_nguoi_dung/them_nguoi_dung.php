@@ -1,3 +1,4 @@
+<?php include'../module/kiem_tra_dang_nhap.php';?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -12,12 +13,11 @@
 		<?php
 			include '../module/sidebar.php';
 		?>
-		<form action="xu_ly_them_nguoi_dung.php" onsubmit="return check_form();" method="post" id="main" class="row no-gutters p-3">
+		<form onsubmit="return check_form();" action="xu_ly_them_nguoi_dung.php" onsubmit="return check_form();" method="post" id="main" class="row no-gutters p-3">
 			<?php
 				include '../module/header.php';
 				include '../module/form_quan_ly_nguoi_dung/form_them_nguoi_dung.php';
 				include '../module/table/table_nguoi_dung.php';
-				include '../module/page_number.php';
 			?>
 		</form>
 	</div>

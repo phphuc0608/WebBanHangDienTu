@@ -35,7 +35,7 @@
     <div class="form-group">
         <div class="form-inline">
             <button class="btn font-weight-bold">Tìm kiếm tin tức <i class="bi bi-search"></i></button>
-            <button class="btn font-weight-bold ml-5"><a href="/WebBanHang/admin/3_2_quan_ly_tin_tuc/them_tin_tuc.php">Thêm tin tức <i class="bi bi-plus-circle-fill"></i></a></button>
+            <button class="btn font-weight-bold ml-5"><a href="/webbanhang/admin/quan_ly_tin_tuc/them_tin_tuc.php">Thêm tin tức <i class="bi bi-plus-circle-fill"></i></a></button>
         </div>
     </div>
 </div>

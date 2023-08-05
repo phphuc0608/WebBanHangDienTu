@@ -1,3 +1,4 @@
+<?php include'../module/kiem_tra_dang_nhap.php';?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -20,7 +21,6 @@
           include '../module/header.php';
           include '../module/form_quan_ly_loai_san_pham/form_sua_loai_san_pham.php';
           include '../module/table/table_loai_san_pham.php';
-          include '../module/page_number.php';
         ?>						
       </div>
     </form>

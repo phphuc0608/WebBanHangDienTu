@@ -10,17 +10,15 @@
     </thead>
     <tbody>
       <?php
+        $page_index = 1;
+        $page_length = 3;
+        if(isset($_GET['pid']))
+          $page_index = $_GET['pid'];
         $sql= "SELECT * FROM loai_tin_tuc WHERE 1=1";
-        $params=array();
-        if(isset($_SESSION['tu_khoa_loai_tin_tuc'])){
-          $sql = $sql." AND ten_loai_tin_tuc LIKE CONCAT('%',:tu_khoa,'%')";
-          $params['tu_khoa'] = $_SESSION['tu_khoa_loai_tin_tuc'];
-        }
-        if($_SESSION['trang_thai_loai_tin_tuc']!=-1){
-          $sql = $sql." AND loai_tin_tuc.trang_thai = :trang_thai";
-          $params['trang_thai'] = $_SESSION['trang_thai_loai_tin_tuc'];
-        }
-        $loai_tin_tucs = execute_query($sql,$params);
+        $start_index = ($page_index - 1) * $page_length;
+        $sql = $sql." LIMIT {$start_index}, {$page_length}";
+
+        $loai_tin_tucs = execute_query($sql);
         foreach($loai_tin_tucs as $loai_tin_tuc){
           echo '
             <tr>
@@ -36,7 +34,25 @@
             </tr>
           ';
         }
+        $sql = "SELECT COUNT(*) AS dem FROM loai_tin_tuc";
+        $row_number = execute_query($sql)[0]['dem'];
+        $page_number = (int)($row_number / $page_length); //ép kiểu về int
+        if($row_number % $page_length != 0){
+          $page_number++;
+        }
       ?>
     </tbody>
   </table>
+</div>
+<div class="col-md-12">
+  <div class="pagination d-flex justify-content-center">
+    <ul class="pagination">
+      <?php
+        for($i = 1; $i <= $page_number; $i++)
+          echo    ' <li class="page-item">
+                      <a href="/WebBanHang/admin/quan_ly_loai_tin_tuc/them_loai_tin_tuc.php?pid='.$i.'" class="page-link">'.$i.'</a>
+                    </li>';
+      ?>
+    </ul>
+  </div>
 </div>

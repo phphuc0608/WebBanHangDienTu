@@ -10,18 +10,43 @@
     </thead>
     <tbody>
       <?php
-        $loai_san_phams = execute_query("SELECT * FROM loai_san_pham");
+        $page_index = 1;
+        $page_length = 3;
+        if(isset($_GET['pid']))
+          $page_index = $_GET['pid'];
+        $sql = "SELECT * FROM loai_san_pham WHERE 1=1";
+        $start_index = ($page_index - 1) * $page_length;
+        //LIMIT hàng bắt đầu, độ dài muốn lấy
+        $sql = $sql." LIMIT {$start_index}, {$page_length}";
+        $loai_san_phams = execute_query($sql);
         foreach($loai_san_phams as $loai_san_pham)
           echo '<tr>
-            <td class="text-center">'.$loai_san_pham[0].'</td>    
-            <td>'.$loai_san_pham[1].'</td>    
-            <td class="text-center"><input type="checkbox" '. ($loai_san_pham[3] == 1 ? 'checked' : '') .'></td>    
+            <td class="text-center">'.$loai_san_pham['ma_loai_san_pham'].'</td>    
+            <td>'.$loai_san_pham['ten_loai_san_pham'].'</td>    
+            <td class="text-center"><input type="checkbox" '. ($loai_san_pham['trang_thai'] == 1 ? 'checked' : '') .'></td>    
             <td class="text-center">
-              <a href="sua_loai_san_pham.php?id='. $loai_san_pham[0] .'"> <i class="bi bi-pen-fill"></i></a> | 
-              <a href="xu_ly_xoa_loai_san_pham.php?id='. $loai_san_pham[0] .'"><i class="bi bi-trash-fill"></i></a>
+              <a href="sua_loai_san_pham.php?id='. $loai_san_pham['ma_loai_san_pham'] .'"> <i class="bi bi-pen-fill"></i></a> | 
+              <a href="xu_ly_xoa_loai_san_pham.php?id='. $loai_san_pham['ma_loai_san_pham'] .'"><i class="bi bi-trash-fill"></i></a>
             </td>
           </tr>';
+        $sql = "SELECT COUNT(*) AS dem FROM loai_san_pham";
+        $row_number = execute_query($sql)[0]['dem'];
+        $page_number = (int)($row_number/$page_length);
+        if($row_number % $page_length != 0)
+          $page_number++;
       ?>							
     </tbody>
   </table>
+</div>
+<div class="col-md-12">
+  <div class="pagination d-flex justify-content-center">
+    <ul class="pagination">
+      <?php
+        for($i = 1; $i <= $page_number; $i++)
+          echo    ' <li class="page-item">
+                      <a href="/WebBanHang/admin/quan_ly_loai_san_pham/them_loai_san_pham.php?pid='.$i.'" class="page-link">'.$i.'</a>
+                    </li>';
+      ?>
+    </ul>
+  </div>
 </div>

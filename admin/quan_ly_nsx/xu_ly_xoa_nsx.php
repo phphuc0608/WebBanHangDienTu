@@ -1,7 +1,6 @@
-
 <?php
+  include'../module/kiem_tra_dang_nhap.php';
   include '../module/database.php';
-  include '../module/javascript.php';
   $ma_nha_san_xuat = $_GET['id'];
   $sql = "SELECT COUNT(*) AS dem FROM san_pham WHERE ma_nha_san_xuat=:ma_nha_san_xuat";
 	$params = array('ma_nha_san_xuat'=> $ma_nha_san_xuat);

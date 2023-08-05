@@ -23,7 +23,7 @@
       <a href="../quan_ly_nsx/them_nsx.php"><span class="bi bi-collection-fill"></span></a>
     </li>
     <li class="nav-item p-1">
-      <a class="nav-link" href="../quan_ly_loai_tin_tuc/quan_ly_loai_tin_tuc.php">Quản lý loại tin tức</a>
+      <a class="nav-link" href="../quan_ly_loai_tin_tuc/them_loai_tin_tuc.php">Quản lý loại tin tức</a>
       <a href="../quan_ly_loai_tin_tuc/them_loai_tin_tuc.php"><span class="bi bi-collection-fill"></span></a>
     </li>
     <li class="nav-item p-1">

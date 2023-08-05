@@ -1,4 +1,5 @@
 <?php
+  include'../module/kiem_tra_dang_nhap.php'; 
   include '../module/database.php';
   $ten_loai_san_pham = $_POST['ten_loai_san_pham'];
   $file_name = $_FILES['hinh_anh']['name'];
@@ -10,11 +11,22 @@
   move_uploaded_file($_FILES['hinh_anh']['tmp_name'], '../../data/loai_san_pham/' . $file_name);
   $hinh_anh = $file_name;
 
-  $sql = "INSERT loai_san_pham (ten_loai_san_pham,hinh_anh,trang_thai) VALUES (:ten_loai_san_pham,:hinh_anh,:trang_thai)";  
+ 
   $params = array();
   $params['ten_loai_san_pham'] = $ten_loai_san_pham;
   $params['hinh_anh'] = $hinh_anh;
   $params['trang_thai'] = $trang_thai;
-  execute_command($sql, $params);
+  
+
+  $count = execute_query("SELECT COUNT(*) FROM loai_san_pham WHERE ten_loai_san_pham =:ten_loai_san_pham", array('ten_loai_san_pham' => $ten_loai_san_pham))[0][0];
+  if($count > 0){
+    alert('Tên loại sản phẩm đã tồn tại');
+    location('them_loai_san_pham.php');
+    return;
+  }
+  else{
+     $sql = "INSERT loai_san_pham (ten_loai_san_pham,hinh_anh,trang_thai) VALUES (:ten_loai_san_pham,:hinh_anh,:trang_thai)";  
+     execute_command($sql, $params);
+  }
   header("Location: them_loai_san_pham.php", TRUE, 307);
 ?>
