@@ -7,35 +7,70 @@
 <div class="col-md-7 p-3">
     <div class="form-group">
         <label for="tu_khoa">Từ khóa</label>
-        <input type="text" class="form-control require" id="tu_khoa">
+        <input type="text" class="form-control" id="tu_khoa" name="tu_khoa" 
+        <?php
+        /*
+        Khi nhập từ khóa và nhấn tìm kiếm thì giá trị của từ khóa được lưu trong SESSION 
+        và khi quay về muốn hiện từ khóa ta đã nhập trước đó thì ta lôi từ khóa ở trong SESSION ra
+        */
+            if(isset($_SESSION['tu_khoa_tin_tuc']))
+                echo 'value = "'.$_SESSION['tu_khoa_tin_tuc'].'"'; 
+        ?>
+        >
     </div>
     <div class="form-group">
-        <label for="ngay_dang">Ngày đăng</label>
-        <input type="date" class="form-control require" id="ngay_dang">
+        <label for="tu_ngay">Từ ngày</label>
+        <input type="date" class="form-control" id="tu_ngay" name="tu_ngay"
+        <?php
+            if(isset($_SESSION['tu_ngay']))
+                echo 'value ="'.$_SESSION['tu_ngay_tin_tuc'].'"';
+        ?>
+        >
+    </div>
+    <div class="form-group">
+        <label for="den_ngay">Đến ngày</label>
+        <input type="date" class="form-control" id="den_ngay" name="den_ngay"
+        <?php
+            if(isset($_SESSION['den_ngay']))
+                echo 'value ="'.$_SESSION['den_ngay_tin_tuc'].'"';
+        ?>
+        >
     </div>
     <div class="form-group">
         <label for="ma_loai_tin_tuc">Loại tin tức</label>
-        <select class="form-control">
+        <select class="form-control" id="ma_loai_tin_tuc" name="ma_loai_tin_tuc">
             <?php
+                echo "<option value='-1'>Tất cả</option>";
                 $loai_tin_tucs = execute_query("SELECT * FROM loai_tin_tuc WHERE trang_thai=1");
                 foreach($loai_tin_tucs as $loai_tin_tuc){
-                    echo "<option>{$loai_tin_tuc['ten_loai_tin_tuc']}</option>";
+                    if($loai_tin_tuc['ma_loai_tin_tuc'] == $_SESSION['ma_loai_tin_tuc'])
+                        echo '<option selected value ="'.$loai_tin_tuc['ma_loai_tin_tuc'].'">'.$loai_tin_tuc['ten_loai_tin_tuc'].'</option>';
+                    else
+                        echo '<option value ="'.$loai_tin_tuc['ma_loai_tin_tuc'].'">'.$loai_tin_tuc['ten_loai_tin_tuc'].'</option>';
                 }
             ?>
         </select>
     </div>
-    <div class="form-group form-check">
-        <label class="form-check-label">
-            <input type="checkbox" class="form-check-input" name="trang_thai">
-            Kích hoạt
-        </label>
+    <div class="form-group form-check p-0">
+    <label>Trạng thái</label>
+        <select name="trang_thai" class="form-control trang_thai">
+        <?php
+            $trang_thais = array('-1' => 'Tất cả', '0' => 'Khóa', '1' => 'Kích hoạt');
+            foreach($trang_thais as $key => $value){
+                if($_SESSION['trang_thai_tin_tuc'] == $key)
+                    echo "<option selected value='{$key}'>$value</option>";                   
+                else
+                    echo "<option value='{$key}'>$value</option>";
+            }
+        ?>                                       
+        </select>
     </div>
 </div>
 <div class="col-md-12">
     <div class="form-group">
         <div class="form-inline">
             <button class="btn font-weight-bold">Tìm kiếm tin tức <i class="bi bi-search"></i></button>
-            <button class="btn font-weight-bold ml-5"><a href="/webbanhang/admin/quan_ly_tin_tuc/them_tin_tuc.php">Thêm tin tức <i class="bi bi-plus-circle-fill"></i></a></button>
+            <button class="btn font-weight-bold ml-5"><a href="/WebBanHang/admin/quan_ly_tin_tuc/them_tin_tuc.php">Thêm tin tức <i class="bi bi-plus-circle-fill"></i></a></button>
         </div>
     </div>
 </div>

@@ -1,7 +1,6 @@
 <?php
   include'../module/kiem_tra_dang_nhap.php'; 
   include '../module/database.php';
-  include '../module/javascript.php';
   $ma_loai_san_pham = $_GET['id'];
   //Kiem tra rang buoc
   $sql = "SELECT COUNT(*) AS dem FROM san_pham WHERE ma_loai_san_pham = :ma_loai_san_pham";
@@ -9,7 +8,7 @@
   $data = execute_query($sql, $params);
   if($data[0]['dem'] > 0){
     alert('Còn tồn tại sản phẩm thuộc loại sản phẩm này');
-    location('/web_ban_hang/admin/quan_ly_loai_san_pham/them_loai_san_pham.php');
+    location('them_loai_san_pham.php');
     return;
   }
   $sql = "SELECT hinh_anh FROM loai_san_pham WHERE ma_loai_san_pham=:ma_loai_san_pham";

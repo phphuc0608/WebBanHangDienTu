@@ -1,6 +1,6 @@
 <?php
+	include '../module/kiem_tra_dang_nhap.php';
 	include '../module/database.php';
-	include '../module/javascript.php';
 	$tieu_de = $_POST['tieu_de'];
 	$ma_loai_tin_tuc = $_POST['ma_loai_tin_tuc'];
 	$tom_tat = $_POST['tom_tat'];

@@ -1,3 +1,4 @@
+<?php include'../module/kiem_tra_dang_nhap.php';?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -14,12 +15,11 @@
 		<?php
       include '../module/sidebar.php';
     ?>
-		<form id="main" class="row no-gutters p-3">
+		<form action="xu_ly_tim_kiem_san_pham.php" method="post" id="main" class="row no-gutters p-3">
 			<?php
         include '../module/header.php';
         include '../module/form_quan_ly_san_pham/form_quan_ly_san_pham.php';
         include '../module/table/table_san_pham.php';
-        include '../module/page_number.php';
       ?>						
 		</form>
 	</div>

@@ -15,24 +15,50 @@
       <?php
         $sql = "SELECT ma_san_pham, ten_san_pham, ten_loai_san_pham, ten_nha_san_xuat, gia, san_pham.trang_thai FROM san_pham 
                 INNER JOIN loai_san_pham ON san_pham.ma_loai_san_pham = loai_san_pham.ma_loai_san_pham 
-                INNER JOIN nha_san_xuat ON san_pham.ma_nha_san_xuat = nha_san_xuat.ma_nha_san_xuat";
-        $san_phams = execute_query($sql);        
-        foreach($san_phams as $san_pham){        
-          echo "<tr>
-            <td class='"."text-center"."'>{$san_pham['ma_san_pham']}</td>
-            <td>{$san_pham['ten_san_pham']}</td>
-            <td>{$san_pham['ten_loai_san_pham']}</td>
-            <td>{$san_pham['ten_nha_san_xuat']}</td>
-            <td>{$san_pham['gia']}</td>
-        ";
+                INNER JOIN nha_san_xuat ON san_pham.ma_nha_san_xuat = nha_san_xuat.ma_nha_san_xuat WHERE 1=1";
+        $params = array();
+        if(isset($_SESSION['tu_khoa_san_pham'])){
+          $sql = $sql . " AND CONCAT(ten_san_pham, mo_ta) LIKE CONCAT('%',:tu_khoa,'%')";
+          $params['tu_khoa'] = $_SESSION['tu_khoa_san_pham'];
+        }
+        if(isset($_SESSION['ma_nha_san_xuat']))
+          if($_SESSION['ma_nha_san_xuat'] != -1){
+            $sql = $sql . " AND san_pham.ma_nha_san_xuat = :ma_nha_san_xuat";
+            $params['ma_nha_san_xuat'] = $_SESSION['ma_nha_san_xuat'];
+         }
+        if(isset($_SESSION['ma_loai_san_pham']))
+          if($_SESSION['ma_loai_san_pham'] != -1){
+            $sql = $sql . " AND san_pham.ma_loai_san_pham = :ma_loai_san_pham";
+            $params['ma_loai_san_pham'] = $_SESSION['ma_loai_san_pham'];
+         }
+        if(isset($_SESSION['gia']))
+          if($_SESSION['gia'] != ''){
+            $sql = $sql . " AND gia = :gia";
+            $params['gia'] = $_SESSION['gia'];
+          }
+        if(isset($_SESSION['trang_thai_san_pham']))
+          if($_SESSION['trang_thai_san_pham'] != -1){
+            $sql = $sql . " AND san_pham.trang_thai = :trang_thai";
+            $params['trang_thai'] = $_SESSION['trang_thai_san_pham'];
+          }
+        $san_phams = execute_query($sql, $params);        
+        foreach($san_phams as $san_pham)
           echo '
-            <td class="text-center"><input type="checkbox" '.($san_pham['trang_thai'] == 1 ? 'checked' : '').'></td>
-            <td class="text-center">
-             <a href="sua_san_pham.php?id=' . $san_pham['ma_san_pham'] . '"><i class="bi bi-pen-fill"></i></a> | 
-             <a href="xu_ly_xoa_san_pham.php?id=' . $san_pham['ma_san_pham'] . '"><i class="bi bi-trash-fill"></i></a>
+            <tr>
+              <td class="text-center">'.$san_pham['ma_san_pham'].'</td>
+              <td>'.$san_pham['ten_san_pham'].'</td>
+              <td class="text-center">'.$san_pham['ten_loai_san_pham'].'</td>
+              <td class="text-center">'.$san_pham['ten_nha_san_xuat'].'</td>
+              <td class="text-center">'.$san_pham['gia'].'</td>
+              <td class="text-center">
+                <input type="checkbox" onclick="return false" '.($san_pham['trang_thai'] == 1 ? 'checked' : '').'>
+              </td>
+              <td class="text-center">
+                <a href="/WebBanHang/admin/quan_ly_san_pham/sua_san_pham.php?id='.$san_pham['ma_san_pham'].'"><i class="bi bi-pen-fill"></i></a> | 
+                <a href="/WebBanHang/admin/quan_ly_san_pham/xu_ly_xoa_san_pham.php?id='.$san_pham['ma_san_pham'].'"><i class="bi bi-trash-fill"></i></a>
             </td>
-          </tr>';
-        }              
+            </tr>
+          '              
       ?>            
     </tbody>
   </table>

@@ -12,7 +12,7 @@
 	<div class="container-fluid px-0">
 		<?php
 		include '../module/sidebar.php';?>
-		<form onsubmit="return check_form();" action="xu_ly_quan_ly_tin_tuc.php" method="post" enctype="multipart/form-data">
+		<form onsubmit="return check_form();" action="xu_ly_tim_kiem_tin_tuc.php" method="post" enctype="multipart/form-data">
 			<div id="main" class="row no-gutters p-3">
 				<?php 
 					include '../module/header.php'; 

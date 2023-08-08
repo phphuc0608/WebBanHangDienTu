@@ -1,3 +1,4 @@
+<?php include'../module/kiem_tra_dang_nhap.php';?>
 <!DOCTYPE html>
 <html>
 <head>
