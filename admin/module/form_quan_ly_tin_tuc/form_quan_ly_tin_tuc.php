@@ -20,21 +20,19 @@
     </div>
     <div class="form-group">
         <label for="tu_ngay">Từ ngày</label>
-        <input type="date" class="form-control" id="tu_ngay" name="tu_ngay"
-        <?php
-            if(isset($_SESSION['tu_ngay']))
-                echo 'value ="'.$_SESSION['tu_ngay_tin_tuc'].'"';
-        ?>
-        >
+        <input placeholder="dd/mm/yyyy" type="text" class="form-control" id="tu_ngay" name="tu_ngay" value="<?php 
+            if(isset($_SESSION['tu_ngay_tin_tuc']))
+                if($_SESSION['tu_ngay_tin_tuc'] != '')
+                    echo format_date_vn($_SESSION['tu_ngay_tin_tuc']);
+        ?>">
     </div>
     <div class="form-group">
         <label for="den_ngay">Đến ngày</label>
-        <input type="date" class="form-control" id="den_ngay" name="den_ngay"
-        <?php
-            if(isset($_SESSION['den_ngay']))
-                echo 'value ="'.$_SESSION['den_ngay_tin_tuc'].'"';
-        ?>
-        >
+        <input placeholder="dd/mm/yyyy" type="text" class="form-control" id="den_ngay" name="den_ngay" value="<?php
+            if(isset($_SESSION['den_ngay_tin_tuc']))
+                if($_SESSION['den_ngay_tin_tuc'] != '')
+                    echo format_date_vn($_SESSION['den_ngay_tin_tuc']);
+        ?>">
     </div>
     <div class="form-group">
         <label for="ma_loai_tin_tuc">Loại tin tức</label>

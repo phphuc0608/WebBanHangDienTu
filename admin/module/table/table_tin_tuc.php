@@ -39,7 +39,6 @@
                     $sql = $sql . " AND tin_tuc.trang_thai = :trang_thai";
                     $params['trang_thai'] = $_SESSION['trang_thai_tin_tuc'];
                   }
-                print_r($params);
                 $tin_tucs = execute_query($sql, $params);
                 foreach($tin_tucs as $tin_tuc)                 
                   echo '<tr>
