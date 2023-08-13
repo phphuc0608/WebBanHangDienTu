@@ -1,22 +1,30 @@
-#first-header {
-	background-color: #333;
-	color: #fff;
+:root{
+  --color-1: #78221f;
+  --color-2: #ffc107;
+	--color-3: #d9d9d9;
 }
-#second-header,
-#title {
-	background-image: linear-gradient(to left,#ebece9,#eee);
+#header_top{
+  background-color: #333;
+  color: #fff;
 }
-#menu a ,
-#title{
-	color: #78221f !important;
+#header_bottom{
+  background-image: linear-gradient(to left, #ebece9, #eee) ;
 }
-#slide-background {
-	background-color: #78221f;
-	background-image: url(../img/bg_pattern.png)
+#menu a{
+  color: var(--color-1)!important;
 }
-#title{
-  border-radius: 10px;
+#slide-background{
+  background-color: var(--color-1);
+  background-image: url(../img/bg_pattern.png);
 }
-#footer{
-  background-color: #343a40!important;
+.main_item{
+	background-color: var(--color-3);
 }
+.product_container{
+	background-color: white;
+}
+.menu_jr .nav-link {
+	color: var(--color-1)!important;
+}
+
+

@@ -11,8 +11,42 @@
 .font-family-1 {
     font-family: 'Oswald', sans-serif;
 }
-.product-container{
-  box-shadow: 0px 0px 8px rgba(0,0,0,0.2);
-  border-radius: 15px;
-  cursor: pointer;  
+.main_item{
+	border-radius: 20px;
+}
+.product_container{
+	box-shadow: 0 0 8px rgba(0, 0, 0, 0.2);
+	border-radius: 10px;
+}
+.menu_jr{
+	border-radius: 10px;
+	box-shadow: 0 0 8px rgba(0, 0, 0, 0.2);
+}
+.menu_jr .nav-link:hover {
+	opacity: 0.5;
+}
+.img_container{
+	overflow: hidden;
+}
+.product_img{
+	transition: transform 0.25s;
+}
+.product_img:hover{
+	transform: scale(1.1);
+}
+.img_news{
+	float: left;
+}
+.summary{
+	display: -webkit-box;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  /* Số dòng tối đa */
+  -webkit-line-clamp: 3; 
+  -moz-line-clamp: 3;
+  -ms-line-clamp: 3;
+  /* Độ cao mỗi dòng */
+  line-height: 1.5em; 
+  max-height: 4.5em; /* (Số dòng tối đa + 1) * độ cao mỗi dòng */
+	
 }
