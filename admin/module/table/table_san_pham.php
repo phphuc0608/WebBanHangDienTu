@@ -41,7 +41,14 @@
             $sql = $sql . " AND san_pham.trang_thai = :trang_thai";
             $params['trang_thai'] = $_SESSION['trang_thai_san_pham'];
           }
-        $san_phams = execute_query($sql, $params);        
+        //Phan trang
+        $page_index = 1;
+        $page_length = 5;
+        if(isset($_GET['pid']))
+          $page_index = $_GET['pid'];
+        $start_index = ($page_index - 1) * $page_length;
+        $sql = $sql." LIMIT {$start_index}, {$page_length}";
+        $san_phams = execute_query($sql, $params);       
         foreach($san_phams as $san_pham)
           echo '
             <tr>
@@ -58,8 +65,26 @@
                 <a href="/WebBanHang/admin/quan_ly_san_pham/xu_ly_xoa_san_pham.php?id='.$san_pham['ma_san_pham'].'"><i class="bi bi-trash-fill"></i></a>
             </td>
             </tr>
-          '              
+          ';
+          $sql = "SELECT COUNT(*) AS dem FROM tin_tuc";
+          $row_number = execute_query($sql)[0]['dem'];
+          $page_number = (int)($row_number / $page_length); //ép kiểu về int
+          if($row_number % $page_length != 0){
+            $page_number++;
+          }                 
       ?>            
     </tbody>
   </table>
+</div>
+<div class="col-md-12">
+  <div class="pagination d-flex justify-content-center">
+    <ul class="pagination">
+      <?php
+        for($i = 1; $i <= $page_number; $i++)
+          echo    ' <li class="page-item">
+                      <a href="/WebBanHang/admin/quan_ly_san_pham/quan_ly_san_pham.php?pid='.$i.'" class="page-link">'.$i.'</a>
+                    </li>';
+      ?>
+    </ul>
+  </div>
 </div>

@@ -1,5 +1,5 @@
 <div class="container-fluid">
-    <div class="row" id="header-top">
+    <div class="row" id="header_top">
       <div class="col-lg-2 py-2 pl-3">
         <i class="bi bi-telephone-fill pr-1"></i>
         0225.123.456
@@ -25,7 +25,7 @@
       </div>
     </div>
     <div class="row">
-      <div class="col-lg-12" id="header-bottom">
+      <div class="col-lg-12" id="header_bottom">
         <div class="navbar navbar-expand-lg">
           <a class="navbar-brand" href="#">
             <img src="/WebBanHang/img/home/logo.png" id="logo">
@@ -38,7 +38,7 @@
           <div class="navbar-collapse collapse" id="menu">
 						<ul class="navbar-nav ml-auto">
 							<li class="nav-item px-3">
-                <a class="nav-link">
+                <a class="nav-link" href="/WebBanHang/home/trang_chu.php">
                   <i class="bi bi-house-door-fill"></i> 
                   Trang chủ
                 </a>
@@ -55,10 +55,11 @@
                   Loại sản phẩm
                 </a>
 								<div class="dropdown-menu">
-									<a class="dropdown-item">Laptop</a>
-									<a class="dropdown-item">Máy tính bảng</a>
-									<a class="dropdown-item">Smartphone</a>
-									<a class="dropdown-item">PC</a>
+                  <?php
+                    $loai_san_phams = execute_query("SELECT * FROM loai_san_pham");
+                    foreach($loai_san_phams as $loai_san_pham)
+                      echo'<a class="dropdown-item">'.$loai_san_pham['ten_loai_san_pham'].'</a>';
+                  ?>
 								</div>
 							</li>
 							<li class="nav-item dropdown px-3">
@@ -66,13 +67,15 @@
                   <i class="bi bi-collection-fill"></i> 
                   Nhà sản xuất</a>
 								<div class="dropdown-menu">
-									<a class="dropdown-item">Apple</a>
-									<a class="dropdown-item">HP</a>
-									<a class="dropdown-item">Dell</a>
-									<a class="dropdown-item">Asus</a>
+                <?php
+                    $nha_san_xuats = execute_query("SELECT * FROM nha_san_xuat");
+                    foreach($nha_san_xuats as $nha_san_xuat)
+                      echo'
+                      <a class="dropdown-item">'.$nha_san_xuat['ten_nha_san_xuat'].'</a>';
+                  ?>
 								</div>
 							</li>
-							<li class="nav-item px-3"><a class="nav-link"><i class="bi bi-newspaper"></i> Tin tức</a></li>
+							<li class="nav-item px-3"><a href="/WebBanHang/home/gioi_thieu_tat_ca_tin_tuc.php" class="nav-link"><i class="bi bi-newspaper"></i> Tin tức</a></li>
 							<li class="nav-item px-3"><a class="nav-link"><i class="bi bi-envelope-fill pr-2"></i> Thông tin liên hệ</a></li>
 						</ul>
 					</div>

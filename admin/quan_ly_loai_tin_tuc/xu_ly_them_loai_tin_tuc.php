@@ -1,4 +1,5 @@
 <?php
+  session_start();
   include_once '../module/kiem_tra_dang_nhap.php';
   include_once '../module/database.php';
   include_once '../module/javascript.php';

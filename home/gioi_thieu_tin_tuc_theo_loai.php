@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>Trang chủ</title>
+    <title>Giới thiệu tin tức theo loại</title>
     <?php
         include 'module/head.php';
     ?>
@@ -10,7 +10,7 @@
     <?php
         include 'module/header.php';
         include 'module/slide.php';
-        include 'module/trang_chu.php';
+        include 'module/gioi_thieu_tin_tuc_theo_loai.php';
         include 'module/footer.php';
     ?>
 </body>

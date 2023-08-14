@@ -6,7 +6,7 @@
   QUẢN LÝ SẢN PHẨM
 </div>
 <div class="col-md-12 box_title px-3 py-2 rounded-top font-weight-bold">
-  THÔNG TIN LOẠI SẢN PHẨM
+  THÔNG TIN SẢN PHẨM
 </div>
 <div class="col-md-6 p-3">
   <div class="form-group">

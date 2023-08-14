@@ -1,7 +1,7 @@
 <!-- Main -->
   <div class="container-md" id="main">
     <!-- Loai san pham -->
-    <div class="row main_item">
+    <div class="row main_item mt-3">
       <div class="col-lg-12 p-4">
         <h2 class="font-weight-bold">LOẠI SẢN PHẨM</h2>
       </div>
@@ -57,70 +57,22 @@
       <div class="col-lg-12 p-4">
         <h2 class="font-weight-bold">SẢN PHẨM XEM NHIỀU</h2>
       </div>
-      <div class="col-md-3">
-        <div class="product_container text-center overflow-hidden p-3 my-3">
-          <img src="./img/iphone-11-trang-600x600.jpg" style="width: 200px;" class="product_img">
-          <div class="font-weight-bold h6 mt-3">Sản phẩm 1</div>
-          <div class="text-danger">1.000.000VNĐ</div>
-          <div class="text-info">25 lượt xem</div>
-        </div>
-      </div>
-      <div class="col-md-3">
-        <div class="product_container text-center overflow-hidden p-3 my-3">
-          <img src="./img/iphone-11-trang-600x600.jpg" style="width: 200px;" class="product_img">
-          <div class="font-weight-bold h6 mt-3">Sản phẩm 1</div>
-          <div class="text-danger">1.000.000VNĐ</div>
-          <div class="text-info">25 lượt xem</div>
-        </div>
-      </div>
-      <div class="col-md-3">
-        <div class="product_container text-center overflow-hidden p-3 my-3">
-          <img src="./img/iphone-11-trang-600x600.jpg" style="width: 200px;" class="product_img">
-          <div class="font-weight-bold h6 mt-3">Sản phẩm 1</div>
-          <div class="text-danger">1.000.000VNĐ</div>
-          <div class="text-info">25 lượt xem</div>
-        </div>
-      </div>
-      <div class="col-md-3">
-        <div class="product_container text-center overflow-hidden p-3 my-3">
-          <img src="./img/iphone-11-trang-600x600.jpg" style="width: 200px;" class="product_img">
-          <div class="font-weight-bold h6 mt-3">Sản phẩm 1</div>
-          <div class="text-danger">1.000.000VNĐ</div>
-          <div class="text-info">25 lượt xem</div>
-        </div>
-      </div>
-      <div class="col-md-3">
-        <div class="product_container text-center overflow-hidden p-3 my-3">
-          <img src="./img/iphone-11-trang-600x600.jpg" style="width: 200px;" class="product_img">
-          <div class="font-weight-bold h6 mt-3">Sản phẩm 1</div>
-          <div class="text-danger">1.000.000VNĐ</div>
-          <div class="text-info">25 lượt xem</div>
-        </div>
-      </div>
-      <div class="col-md-3">
-        <div class="product_container text-center overflow-hidden p-3 my-3">
-          <img src="./img/iphone-11-trang-600x600.jpg" style="width: 200px;" class="product_img">
-          <div class="font-weight-bold h6 mt-3">Sản phẩm 1</div>
-          <div class="text-danger">1.000.000VNĐ</div>
-          <div class="text-info">25 lượt xem</div>
-        </div>
-      </div>
-      <div class="col-md-3">
-        <div class="product_container text-center overflow-hidden p-3 my-3">
-          <img src="./img/iphone-11-trang-600x600.jpg" style="width: 200px;" class="product_img">
-          <div class="font-weight-bold h6 mt-3">Sản phẩm 1</div>
-          <div class="text-danger">1.000.000VNĐ</div>
-          <div class="text-info">25 lượt xem</div>
-        </div>
-      </div>
-      <div class="col-md-3">
-        <div class="product_container text-center overflow-hidden p-3 my-3">
-          <img src="./img/iphone-11-trang-600x600.jpg" style="width: 200px;" class="product_img">
-          <div class="font-weight-bold h6 mt-3">Sản phẩm 1</div>
-          <div class="text-danger">1.000.000VNĐ</div>
-          <div class="text-info">25 lượt xem</div>
-        </div>
-      </div>
-      
+      <?php
+        $san_phams = execute_query("SELECT * FROM san_pham ORDER BY ma_san_pham ASC LIMIT 0,4");
+        foreach ($san_phams as $san_pham) {
+          if($san_pham['trang_thai']!=0){
+            echo'
+            <div class="col-md-3">
+              <div class="product_container text-center overflow-hidden p-3 my-3">
+              <img src="/WebBanHang/data/san_pham/'.$san_pham['hinh_anh'].'" style="width: 200px;" class="product_img">
+              <div class="font-weight-bold h6 mt-3">'.$san_pham['ten_san_pham'].'</div>
+              <div class="text-danger">'.$san_pham['gia'].'VNĐ</div>
+                <div class="text-info">'.$san_pham['luot_xem'].' lượt xem</div>
+              </div>
+            </div>
+            ';
+          }
+        }
+      ?>
     </div>
   </div>  
