@@ -1,7 +1,7 @@
 <div id="menu">
   <div id="logo" class="row no-gutters">
     <div class="col-9 py-2">
-      <img src="/WebBanHang/img/admin/logo.png" class="img-fluid">
+      <img src="/<?php echo $root; ?>/img/admin/logo.png" class="img-fluid">
     </div>
     <div class="col-3 pt-3 pl-4">
       <button class="navbar-toggler px-2 py-1 mt-1" type="button" onclick="toggleNav()">

@@ -28,8 +28,8 @@
                 <input type="checkbox" onclick="return false" '.($loai_tin_tuc['trang_thai'] == 1 ? 'checked' : '').'>
               </td>
               <td class="text-center">
-                <a href="/WebBanHang/admin/quan_ly_loai_tin_tuc/sua_loai_tin_tuc.php?id='.$loai_tin_tuc['ma_loai_tin_tuc'].'"><i class="bi bi-pen-fill"></i></a> | 
-                <a href="/WebBanHang/admin/quan_ly_loai_tin_tuc/xu_ly_xoa_loai_tin_tuc.php?id='.$loai_tin_tuc['ma_loai_tin_tuc'].'"><i class="bi bi-trash-fill"></i></a>
+                <a href="/'.$root.'/admin/quan_ly_loai_tin_tuc/sua_loai_tin_tuc.php?id='.$loai_tin_tuc['ma_loai_tin_tuc'].'"><i class="bi bi-pen-fill"></i></a> | 
+                <a href="/'.$root.'/admin/quan_ly_loai_tin_tuc/xu_ly_xoa_loai_tin_tuc.php?id='.$loai_tin_tuc['ma_loai_tin_tuc'].'"><i class="bi bi-trash-fill"></i></a>
               </td>
             </tr>
           ';
@@ -50,7 +50,7 @@
       <?php
         for($i = 1; $i <= $page_number; $i++)
           echo    ' <li class="page-item">
-                      <a href="/WebBanHang/admin/quan_ly_loai_tin_tuc/them_loai_tin_tuc.php?pid='.$i.'" class="page-link">'.$i.'</a>
+                      <a href="/'.$root.'/admin/quan_ly_loai_tin_tuc/them_loai_tin_tuc.php?pid='.$i.'" class="page-link">'.$i.'</a>
                     </li>';
       ?>
     </ul>

@@ -18,8 +18,8 @@
                 <input type="checkbox" onclick="return false" '.($nguoi_dung['trang_thai'] == 1 ? 'checked' : '').'>
               </td>
               <td class="text-center">
-                <a href="/WebBanHang/admin/quan_ly_nguoi_dung/sua_nguoi_dung.php?id='.$nguoi_dung['tai_khoan'].'"><i class="bi bi-pen-fill"></i></a> | 
-                <a href="/WebBanHang/admin/quan_ly_nguoi_dung/xu_ly_xoa_nguoi_dung.php?id='.$nguoi_dung['tai_khoan'].'"><i class="bi bi-trash-fill"></i></a>
+                <a href="/'.$root.'/admin/quan_ly_nguoi_dung/sua_nguoi_dung.php?id='.$nguoi_dung['tai_khoan'].'"><i class="bi bi-pen-fill"></i></a> | 
+                <a href="/'.$root.'/admin/quan_ly_nguoi_dung/xu_ly_xoa_nguoi_dung.php?id='.$nguoi_dung['tai_khoan'].'"><i class="bi bi-trash-fill"></i></a>
               </td>
             </tr>
           ';

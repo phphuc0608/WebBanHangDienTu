@@ -27,7 +27,7 @@
     $loai_tin_tucs = execute_query($sql, $params);
     if(count($loai_tin_tucs) == 0){
       alert("Loại tin tức không tồn tại");
-      location('/WebBanHang/home/trang_chu.php');
+      location('/'.$root.'/home/trang_chu.php');
       return;
     }
     else{
@@ -53,7 +53,7 @@
           if($tin_tuc['trang_thai']!=0)
           echo '
           <div class="col-md-12 d-flex align-content-center pb-4">
-            <img src="/WebBanHang/data/tin_tuc/'.$tin_tuc['hinh_anh'].'" class="w-25 img_news">
+            <img src="/'.$root.'/data/tin_tuc/'.$tin_tuc['hinh_anh'].'" class="w-25 img_news">
             <div class="news_info ml-3">
               <h3 class="news_title font-weight-bold m-0 mb-2">'.$tin_tuc['tieu_de'].'</h3>
               <div class="date_views font-italic mb-2">Ngày đăng: '.$tin_tuc['ngay_dang'].' - Lượt xem: '.$tin_tuc['luot_xem'].'</div>
@@ -79,7 +79,7 @@
           <?php
               for($i = 1; $i <= $page_number; $i++)
                 echo  ' <li class="page-item page_item">
-                          <a href="/WebBanHang/home/gioi_thieu_tin_tuc_theo_loai.php?id='.$ma_loai_tin_tuc.'&pid='.$i.'" class="page-link">'.$i.'</a>
+                          <a href="/'.$root.'/home/gioi_thieu_tin_tuc_theo_loai.php?id='.$ma_loai_tin_tuc.'&pid='.$i.'" class="page-link">'.$i.'</a>
                       </li>';
             ?>
 					</ul>

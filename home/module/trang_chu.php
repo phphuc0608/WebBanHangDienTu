@@ -11,8 +11,12 @@
           echo '
           <div class="col-md-3">
           <div class="product_container text-center overflow-hidden p-3 my-3">
-            <img src="/WebBanHang/data/loai_san_pham/'.$loai_san_pham['hinh_anh'].'" style="width: 200px" class="product_img">
-            <div class="font-weight-bold h6 mt-3">'.$loai_san_pham['ten_loai_san_pham'].'</div>
+            <img src="/'.$root.'/data/loai_san_pham/'.$loai_san_pham['hinh_anh'].'" style="width: 200px" class="product_img">
+            <div class="font-weight-bold h6 mt-3">
+              <a href="/'.$root.'/home/gioi_thieu_san_pham_theo_loai.php?id='.$loai_san_pham['ma_loai_san_pham'].'">
+              '.$loai_san_pham['ten_loai_san_pham'].' 
+              </a>
+            </div>
           </div>
         </div>';
       ?>
@@ -28,8 +32,11 @@
           echo '
           <div class="col-md-3">
           <div class="product_container text-center overflow-hidden p-3 my-3">
-            <img src="/WebBanHang/data/nsx/'.$nha_san_xuat['hinh_anh'].'" style="width: 200px" class="product_img">
-            <div class="font-weight-bold h6 mt-3">'.$nha_san_xuat['ten_nha_san_xuat'].'</div>
+            <img src="/'.$root.'/data/nsx/'.$nha_san_xuat['hinh_anh'].'" style="width: 200px" class="product_img">
+            <div class="font-weight-bold h6 mt-3">
+              <a href="/'.$root.'/home/gioi_thieu_san_pham_theo_nha_san_xuat.php?id='.$nha_san_xuat['ma_nha_san_xuat'].'">
+              '.$nha_san_xuat['ten_nha_san_xuat'].'</div>
+              </a>
           </div>
         </div>';
       ?>
@@ -45,8 +52,12 @@
           echo '
           <div class="col-md-3">
           <div class="product_container text-center overflow-hidden p-3 my-3">
-            <img src="/WebBanHang/data/san_pham/'.$san_pham['hinh_anh'].'" style="width: 200px;" class="product_img">
-            <div class="font-weight-bold h6 mt-3">'.$san_pham['ten_san_pham'].'</div>
+            <img src="/'.$root.'/data/san_pham/'.$san_pham['hinh_anh'].'" style="width: 200px;" class="product_img">
+            <div class="font-weight-bold h6 mt-3">
+            <a href="/'.$root.'/home/trinh_bay_san_pham.php?id='.$san_pham['ma_san_pham'].'&tid='.$san_pham['ma_loai_san_pham'].'">
+              '.$san_pham['ten_san_pham'].'
+            </a>
+          </div>
             <div class="text-danger">'.$san_pham['gia'].'VNĐ</div>
           </div>
         </div>';
@@ -64,8 +75,12 @@
             echo'
             <div class="col-md-3">
               <div class="product_container text-center overflow-hidden p-3 my-3">
-              <img src="/WebBanHang/data/san_pham/'.$san_pham['hinh_anh'].'" style="width: 200px;" class="product_img">
-              <div class="font-weight-bold h6 mt-3">'.$san_pham['ten_san_pham'].'</div>
+              <img src="/'.$root.'/data/san_pham/'.$san_pham['hinh_anh'].'" style="width: 200px;" class="product_img">
+              <div class="font-weight-bold h6 mt-3">
+              <a href="/'.$root.'/home/trinh_bay_san_pham.php?id='.$san_pham['ma_san_pham'].'&tid='.$san_pham['ma_loai_san_pham'].'">
+                '.$san_pham['ten_san_pham'].'
+              </a>
+            </div>
               <div class="text-danger">'.$san_pham['gia'].'VNĐ</div>
                 <div class="text-info">'.$san_pham['luot_xem'].' lượt xem</div>
               </div>

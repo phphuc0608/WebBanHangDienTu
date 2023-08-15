@@ -44,7 +44,7 @@
       <?php
         for($i = 1; $i <= $page_number; $i++)
           echo    ' <li class="page-item">
-                      <a href="/WebBanHang/admin/quan_ly_loai_san_pham/them_loai_san_pham.php?pid='.$i.'" class="page-link">'.$i.'</a>
+                      <a href="/'.$root.'/admin/quan_ly_loai_san_pham/them_loai_san_pham.php?pid='.$i.'" class="page-link">'.$i.'</a>
                     </li>';
       ?>
     </ul>

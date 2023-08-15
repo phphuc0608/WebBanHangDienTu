@@ -33,19 +33,24 @@
   <!-- Main -->
   <div id="main" class="col-md-10">
         <div class="col-lg-12 p-3 my-3 main_item ">
-          <h2 class="font-weight-bold mb-0">DANH SÁCH SẢN PHẨM</h2>
+          <h2 class="font-weight-bold mb-0">KẾT QUẢ TÌM KIẾM SẢN PHẨM</h2>
         </div>
         <div class="row">
         <?php
+          //Tinh so trang
           $page_index = 1;
           $page_length = 8;
           if(isset($_GET['pid']))
             $page_index = $_GET['pid'];
-          $sql= "SELECT * FROM san_pham WHERE 1=1";
+          //Tim kiem tren trang chu
+          $tu_khoa = '';
+          if(isset($_SESSION['tu_khoa']))
+            $tu_khoa = $_SESSION['tu_khoa'];
+          $sql= "SELECT * FROM v_san_pham WHERE CONCAT(ten_san_pham, ten_loai_san_pham, ten_nha_san_xuat, mo_ta) LIKE CONCAT('%',:tu_khoa,'%')";
+          
           $start_index = ($page_index - 1) * $page_length;
           $sql = $sql." LIMIT {$start_index}, {$page_length}";
-
-          $san_phams = execute_query($sql);
+          $san_phams = execute_query($sql,array('tu_khoa'=>$tu_khoa));
           foreach($san_phams as $san_pham){
             if($san_pham['trang_thai']!=0){
               echo '
@@ -57,14 +62,14 @@
                   '.$san_pham['ten_san_pham'].'
                 </a>
               </div>
-              <div class="text-danger">'.format_vn_number($san_pham['gia']).'VNĐ</div>
+              <div class="text-danger">'.$san_pham['gia'].'VNĐ</div>
               <div class="text-info">'.$san_pham['luot_xem'].' lượt xem</div>
             </div>
           </div> ';
             }
           }
-          $sql = "SELECT COUNT(*) AS dem FROM san_pham";
-          $row_number = execute_query($sql)[0]['dem'];
+          $sql = "SELECT COUNT(*) AS dem FROM v_san_pham WHERE CONCAT(ten_san_pham, ten_loai_san_pham, ten_nha_san_xuat, mo_ta) LIKE CONCAT('%',:tu_khoa,'%')";
+          $row_number = execute_query($sql, array('tu_khoa'=>$tu_khoa))[0]['dem'];
           $page_number = (int)($row_number / $page_length); //ép kiểu về int
           if($row_number % $page_length != 0){
             $page_number++;

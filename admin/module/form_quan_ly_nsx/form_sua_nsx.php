@@ -40,7 +40,7 @@
     </div>
 </div>
 <div class="col-md-5 p-3 d-flex justify-content-center align-items-center">
-    <img class="img-thumbnail img-fluid mt-3" src="/WebBanHang/data/nsx/<?php echo $nha_san_xuat['hinh_anh']; ?>" style="object-fit: cover; width: 250px;">
+    <img class="img-thumbnail img-fluid mt-3" src="/<?php echo $root; ?>/data/nsx/<?php echo $nha_san_xuat['hinh_anh']; ?>" style="object-fit: cover; width: 250px;">
 </div>
 <div class="col-md-12">
     <div class="form-group">

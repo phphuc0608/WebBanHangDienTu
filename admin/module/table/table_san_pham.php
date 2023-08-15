@@ -61,8 +61,8 @@
                 <input type="checkbox" onclick="return false" '.($san_pham['trang_thai'] == 1 ? 'checked' : '').'>
               </td>
               <td class="text-center">
-                <a href="/WebBanHang/admin/quan_ly_san_pham/sua_san_pham.php?id='.$san_pham['ma_san_pham'].'"><i class="bi bi-pen-fill"></i></a> | 
-                <a href="/WebBanHang/admin/quan_ly_san_pham/xu_ly_xoa_san_pham.php?id='.$san_pham['ma_san_pham'].'"><i class="bi bi-trash-fill"></i></a>
+                <a href="/'.$root.'/admin/quan_ly_san_pham/sua_san_pham.php?id='.$san_pham['ma_san_pham'].'"><i class="bi bi-pen-fill"></i></a> | 
+                <a href="/'.$root.'/admin/quan_ly_san_pham/xu_ly_xoa_san_pham.php?id='.$san_pham['ma_san_pham'].'"><i class="bi bi-trash-fill"></i></a>
             </td>
             </tr>
           ';
@@ -82,7 +82,7 @@
       <?php
         for($i = 1; $i <= $page_number; $i++)
           echo    ' <li class="page-item">
-                      <a href="/WebBanHang/admin/quan_ly_san_pham/quan_ly_san_pham.php?pid='.$i.'" class="page-link">'.$i.'</a>
+                      <a href="/'.$root.'/admin/quan_ly_san_pham/quan_ly_san_pham.php?pid='.$i.'" class="page-link">'.$i.'</a>
                     </li>';
       ?>
     </ul>
